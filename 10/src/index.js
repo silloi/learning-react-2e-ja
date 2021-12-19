@@ -1,13 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+// import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import PropTypes from "prop-types";
+
+function App({ status }) {
+  return (
+    <div>
+      {/* <h1>{name}</h1> */}
+      {/* <p>{using ? "used here" : "not used here"}</p> */}
+      <h1>We're {status === "Open" ? "Open!" : "Closed!"}</h1>
+    </div>
+  );
+}
+
+App.PropTypes = {
+  // name: PropTypes.string.isRequired,
+  // using: PropTypes.bool
+  status: PropTypes.string.oneOf(["Open", "Closed"])
+};
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>,
+  <App />,
   document.getElementById("root")
 );
 
